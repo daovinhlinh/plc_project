@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "161646151166",
+    "project_id": "plc-project-bd2a7",
+    "storage_bucket": "plc-project-bd2a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161646151166:android:fec2b2bdc4b2e428162caf",
+        "android_client_info": {
+          "package_name": "com.plc_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161646151166-ork6vbpne4ausu4ia8p70phr3eev1smt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm7NdASZ0vs0nGHUc_y3t4nuUIz0JwgYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161646151166-ork6vbpne4ausu4ia8p70phr3eev1smt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
