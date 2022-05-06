@@ -15,6 +15,9 @@ import {
   fetchPower,
   fetchReverseLimitSwitchHigh,
   fetchReverseLimitSwitchMed,
+  fetchSpeed,
+  fetchInverter,
+  fetchRun,
 } from '../../redux/actions/index';
 import {styles} from './styles';
 import {LoadingIndicator} from '../../components/LoadingIndicator';
@@ -33,6 +36,9 @@ export const SignalScreen = ({navigation}) => {
     power,
     reverseLimitSwitchHigh,
     reverseLimitSwitchMed,
+    speed,
+    inverter,
+    run,
   } = useSelector(state => state.signal);
   const signal = useSelector(state => state.signal.signal);
 
@@ -47,19 +53,22 @@ export const SignalScreen = ({navigation}) => {
     dispatch(fetchSignalData());
 
     dispatch(fetchForwardLimitSwitchHigh());
-    dispatch(fetchForwardLimitSwitchMed()),
-      dispatch(fetchMotor()),
-      dispatch(fetchMotorHighForward()),
-      dispatch(fetchMotorHighReverse()),
-      dispatch(fetchMotorMedForward()),
-      dispatch(fetchMotorMedReverse()),
-      dispatch(fetchPower()),
-      dispatch(fetchReverseLimitSwitchHigh()),
-      dispatch(fetchReverseLimitSwitchMed());
+    dispatch(fetchForwardLimitSwitchMed());
+    dispatch(fetchMotor());
+    dispatch(fetchMotorHighForward());
+    dispatch(fetchMotorHighReverse());
+    dispatch(fetchMotorMedForward());
+    dispatch(fetchMotorMedReverse());
+    dispatch(fetchPower());
+    dispatch(fetchReverseLimitSwitchHigh());
+    dispatch(fetchReverseLimitSwitchMed());
+    dispatch(fetchSpeed());
+    dispatch(fetchInverter());
+    dispatch(fetchRun());
   }, []);
 
   useEffect(() => {
-    console.log(motorHighReverse);
+    console.log(xSignal);
     if (
       forwardLimitSwitchHigh != null &&
       forwardLimitSwitchMed != null &&
@@ -70,13 +79,19 @@ export const SignalScreen = ({navigation}) => {
       motorHighForward != null &&
       motorHighReverse != null &&
       motorMedForward != null &&
-      motorMedReverse != null
+      motorMedReverse != null &&
+      speed != null &&
+      inverter != null &&
+      run != null
     ) {
       setXSignal([
         forwardLimitSwitchHigh,
         forwardLimitSwitchMed,
         reverseLimitSwitchHigh,
         reverseLimitSwitchMed,
+        speed,
+        inverter,
+        run,
       ]);
       setYSignal([
         motor,
@@ -99,6 +114,9 @@ export const SignalScreen = ({navigation}) => {
     motorMedReverse,
     reverseLimitSwitchHigh,
     reverseLimitSwitchMed,
+    speed,
+    inverter,
+    run,
   ]);
 
   useEffect(() => {

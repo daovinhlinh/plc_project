@@ -36,6 +36,9 @@ import {
   SIGNAL_GET_REVERSE_LIMIT_SWITCH_MED_SUCCESS,
   POWER_ON_SUCCESS,
   POWER_OFF_SUCCESS,
+  INVERTER_GET_SUCCESS,
+  SPEED_GET_SUCCESS,
+  RUN_GET_SUCCESS,
 } from '../actions';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
@@ -266,6 +269,45 @@ export const fetchReverseLimitSwitchMed = () => {
       .on('value', snapshot => {
         dispatch({
           type: SIGNAL_GET_REVERSE_LIMIT_SWITCH_MED_SUCCESS,
+          payload: snapshot.val(),
+        });
+      });
+  };
+};
+
+export const fetchSpeed = () => {
+  return dispatch => {
+    database()
+      .ref('/Speeds')
+      .on('value', snapshot => {
+        dispatch({
+          type: SPEED_GET_SUCCESS,
+          payload: snapshot.val(),
+        });
+      });
+  };
+};
+
+export const fetchInverter = () => {
+  return dispatch => {
+    database()
+      .ref('/Inverter')
+      .on('value', snapshot => {
+        dispatch({
+          type: INVERTER_GET_SUCCESS,
+          payload: snapshot.val(),
+        });
+      });
+  };
+};
+
+export const fetchRun = () => {
+  return dispatch => {
+    database()
+      .ref('/RUN')
+      .on('value', snapshot => {
+        dispatch({
+          type: RUN_GET_SUCCESS,
           payload: snapshot.val(),
         });
       });

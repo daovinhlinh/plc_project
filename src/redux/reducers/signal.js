@@ -25,6 +25,12 @@ import {
   SIGNAL_GET_REVERSE_LIMIT_SWITCH_MED_FAILED,
   SIGNAL_GET_MOTOR_HIGH_REVERSE_SUCCESS,
   SIGNAL_GET_MOTOR_HIGH_REVERSE_FAILED,
+  SPEED_GET_SUCCESS,
+  SPEED_GET_FAILED,
+  INVERTER_GET_SUCCESS,
+  INVERTER_GET_FAILED,
+  RUN_GET_SUCCESS,
+  RUN_GET_FAILED,
 } from '../actions';
 
 const initState = {
@@ -41,6 +47,9 @@ const initState = {
   power: null,
   reverseLimitSwitchHigh: null,
   reverseLimitSwitchMed: null,
+  speed: null,
+  inverter: null,
+  speed: null,
 };
 
 export const signal = (state = initState, action) => {
@@ -159,6 +168,24 @@ export const signal = (state = initState, action) => {
     case SIGNAL_GET_REVERSE_LIMIT_SWITCH_MED_FAILED:
       console.log('Get SIGNAL_GET_REVERSE_LIMIT_SWITCH_MED_FAILED');
       return state;
+
+    case SPEED_GET_SUCCESS:
+      return {
+        ...state,
+        speed: action.payload,
+      };
+
+    case INVERTER_GET_SUCCESS:
+      return {
+        ...state,
+        inverter: action.payload,
+      };
+
+    case RUN_GET_SUCCESS:
+      return {
+        ...state,
+        run: action.payload,
+      };
 
     default:
       return state;
